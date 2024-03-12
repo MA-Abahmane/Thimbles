@@ -1,50 +1,60 @@
+@font-face {
+    font-family: myFont;
+    src: url(Bitter-ExtraBold.ttf);
+}
+
+* {
+    font-family: myFont;
+    letter-spacing: 0.08em;
+    user-select: none;
+}
+
 .main {
-align-content: center;
+    align-content: center;
 }
 
 .body {
-height: 100vh;
-margin: 0;
-display: grid;
-place-items: center;
-zoom: 100%;
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
 }
 
 h3 {
-font-size: 15em;
-top: 0em;
-margin-top: 0em;
-color: #fff;
-text-shadow: 3em 7em 3em #81838d;
+    font-size: 10em;
+    top: 0em;
+    margin-top: 0em;
+    color: #fff;
+    text-shadow: 3em 7em 3em #81838d;
 }
 
 .preloader {
-position: fixed;
-top: 0;
-width: 100%;
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-background-color: black;
-z-index: 20;
-transition: all 0.5s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    z-index: 20;
+    transition: all 0.5s ease;
 }
 
 .preload-finish {
-opacity: 0;
-display: none;
+    opacity: 0;
+    display: none;
 }
 
 .loader {
-border: 16px solid #f3f3f3;
-border-radius: 50%;
-border-top: 16px solid #dc650f;
-width: 120px;
-height: 120px;
--webkit-animation: spin 4s linear infinite; /* Safari */
-animation: spin 4s linear infinite;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #dc650f;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 4s linear infinite; /* Safari */
+    animation: spin 4s linear infinite;
 }
 
 /* Safari */
@@ -76,29 +86,23 @@ body {
 }
 
 .game_section {
-width: 100%;
-height: 60vh;
-place-items: center;
-display: flex;
-position: relative;
-flex-direction: column;
-align-items: center;
-min-height: 54.4375em;
-background: url(Img/s.jpg);
-font-size: 16px;
+    width: 100%;
+    height: 60vh;
+    place-items: center;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    min-height: 60vh; 
+    background: url(Img/s.jpg);
+    font-size: 1vw; 
 }
 
 .game_container {
-position: absolute;
-bottom: 20px;
-width: 52.5em;
-height: 28.75em;
-direction: ltr;
-overflow: hidden;
-background: url(Img/s.png) no-repeat center;
-background-size: contain;
-background-position-y: 14em;
-border-radius: 0em 0em 12em 12em;
+    position: absolute;
+    bottom: 1vh; 
+    width: 52.5vw; 
+    height: 28.75vh; 
 }
 
 .sewing_thimble {
@@ -180,21 +184,61 @@ margin: 10em 0em 0em;
 }
 
 .Playbutton {
-cursor: default;
-margin-top: 195px;
-border: 0.125em solid #81838d;
-text-decoration: none;
-text-shadow: 0em 0em 0.125em #434b5b;
-pointer-events: all;
-position: relative;
-cursor: pointer;
-padding: 0.75em 0.625em 0.625em;
+position: absolute;
+width: 9.5vw;
+height: 5.75vh;
 min-width: 15.875em;
-border: 0.125em solid #d3871c;
-border-radius: 0.4375em;
-background: linear-gradient(180deg, #fff568, #efd048);
+bottom: -13em;
+padding: 0.45em 0.625em 0.625em;
+background-color: transparent;
+backdrop-filter: blur(0.2em);
+
+border: none;
+border-radius: 5em;
+box-shadow: 0em 0.1em 0.625em rgba(0, 0, 0, 0.743);
+cursor: pointer;
+
+color: #353230bb;
+font-weight: 700;
+text-decoration: none;
 text-align: center;
-color: rgb(0, 0, 0);
+font-size: 1.3em;
+text-shadow: 0em 0em 5em 8em #434b5b;
+
+transition: all 0.2s ease-in-out;
 z-index: 7;
-font-size: 20px;
+}
+.Playbutton:hover {
+    box-shadow: 0em 0.1em 0.625em 0.075em rgba(0, 0, 0, 0.72);
+    bottom: -12.8em;
+}
+
+
+.shop {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 1em;
+    right: 1em;
+    width: 65px;
+    height: 65px;
+    border-radius: 100px;
+    background: white;
+    overflow: hidden;
+    cursor: pointer;
+}
+.shop img {
+    width: 90%;
+    height: 90%;
+}
+
+.timer {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    width: 100px;
+    height: 50px;
+    font-size: 1.5em;
+    color: white;
 }
