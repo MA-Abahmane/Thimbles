@@ -106,107 +106,107 @@ body {
 }
 
 .sewing_thimble {
-background: url(Img/cup.png) no-repeat fixed center;
-background-size: cover;
-border: none;
-position: absolute;
-top: 11.875em;
-z-index: 4;
-width: 8em;
-height: 9.0625em;
-font-size: inherit;
-will-change: transform, top, left;
-transition: all 0.2s ease-in-out;
-cursor: pointer;
+    background: url(Img/cup.png) no-repeat fixed center;
+    background-size: cover;
+    border: none;
+    position: absolute;
+    top: 11.875em;
+    z-index: 4;
+    width: 8em;
+    height: 9.0625em;
+    font-size: inherit;
+    will-change: transform, top, left;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .thimble-0 {
-left: 9.5em;
+    left: 9.5em;
 }
 
 .thimble-1 {
 top: 13.5em;
-left: 22em;
+    left: 22em;
 }
 
 .thimble-2 {
-left: 34.3em;
+    left: 34.3em;
 }
 
 .thimbleup {
-transform: translateY(-3em);
+    transform: translateY(-3em);
 }
 
 .thimble_ball_position-0 {
-background: url(Img/Ball.png) no-repeat center;
-background-size: cover;
-position: relative;
-left: 10.8em;
-top: 15.7em;
-width: 5em;
-height: 5em;
-border-radius: 50%;
-z-index: 0;
+    background: url(Img/Ball.png) no-repeat center;
+    background-size: cover;
+    position: relative;
+    left: 10.8em;
+    top: 15.7em;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    z-index: 0;
 }
 
 .thimble_ball_position-1 {
-background: url(Img/Ball.png) no-repeat center;
-background-size: cover;
-position: relative;
-left: 23.3em;
-top: 17.5em;
-width: 5em;
-height: 5em;
-border-radius: 50%;
-z-index: 0;
+    background: url(Img/Ball.png) no-repeat center;
+    background-size: cover;
+    position: relative;
+    left: 23.3em;
+    top: 17.5em;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    z-index: 0;
 }
 
 .thimble_ball_position-2 {
-background: url(Img/Ball.png) no-repeat center;
-background-size: cover;
-position: relative;
-left: 35.6em;
-top: 15.7em;
-width: 5em;
-height: 5em;
-border-radius: 50%;
-z-index: 0;
+    background: url(Img/Ball.png) no-repeat center;
+    background-size: cover;
+    position: relative;
+    left: 35.6em;
+    top: 15.7em;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    z-index: 0;
 }
 
 .pbutton_container {
-padding-bottom: 1.5625em;
-margin-top: 0.6875em;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-margin: 10em 0em 0em;
+    padding-bottom: 1.5625em;
+    margin-top: 0.6875em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10em 0em 0em;
 }
 
 .Playbutton {
-position: absolute;
-width: 9.5vw;
-height: 5.75vh;
-min-width: 15.875em;
-bottom: -13em;
-padding: 0.45em 0.625em 0.625em;
-background-color: transparent;
-backdrop-filter: blur(0.2em);
+    position: absolute;
+    width: 9.5vw;
+    height: 5.75vh;
+    min-width: 15.875em;
+    bottom: -13em;
+    padding: 0.45em 0.625em 0.625em;
+    background-color: transparent;
+    backdrop-filter: blur(0.2em);
 
-border: none;
-border-radius: 5em;
-box-shadow: 0em 0.1em 0.625em rgba(0, 0, 0, 0.743);
-cursor: pointer;
+    border: none;
+    border-radius: 5em;
+    box-shadow: 0em 0.1em 0.625em rgba(0, 0, 0, 0.743);
+    cursor: pointer;
 
-color: #353230bb;
-font-weight: 700;
-text-decoration: none;
-text-align: center;
-font-size: 1.3em;
-text-shadow: 0em 0em 5em 8em #434b5b;
+    color: #353230bb;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.3em;
+    text-shadow: 0em 0em 5em 8em #434b5b;
 
-transition: all 0.2s ease-in-out;
-z-index: 7;
+    transition: all 0.2s ease-in-out;
+    z-index: 7;
 }
 .Playbutton:hover {
     box-shadow: 0em 0.1em 0.625em 0.075em rgba(0, 0, 0, 0.72);
