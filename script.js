@@ -1,7 +1,9 @@
 //pre-loader
 window.addEventListener("load", () => {
     const preloader = document.querySelector(".preloader");
-    preloader.classList.add("preload-finish");
+    setTimeout(() => {
+        preloader.classList.add("preload-finish");
+    }, 2000)
 });
 
 //this function triggers when you click play
@@ -22,26 +24,48 @@ function thimbledown(x) {
 }
 
 //this function selects one thimble at random and positions the ball under it and lifts it at the beginning
+let timeLeft = 5 * 60; // 5 minutes in seconds
+
+const countdownEl = document.getElementById('countdown');
 function Showball() {
-document.getElementById("Playbutton").style.pointerEvents = "none";
-let rand = getRandNum();
-let thimb = document.getElementById(`Cup${rand}`);
+    document.getElementById("Playbutton").style.pointerEvents = "none";
+    let rand = getRandNum();
+    let thimb = document.getElementById(`Cup${rand}`);
 
-document
-    .getElementById("thimble_ball")
-    .setAttribute("Class", `thimble_ball_position-${rand}`);
-
-thimb.classList.add("thimbleup");
-
-setTimeout(function () {
-    thimb.classList.remove("thimbleup");
-}, 4000);
-
-setTimeout(function () {
     document
         .getElementById("thimble_ball")
-        .classList.remove(`thimble_ball_position-${rand}`);
-}, 4500);
+        .setAttribute("Class", `thimble_ball_position-${rand}`);
+
+    thimb.classList.add("thimbleup");
+
+    setTimeout(function () {
+        thimb.classList.remove("thimbleup");
+    }, 4000);
+
+    setTimeout(function () {
+        document
+            .getElementById("thimble_ball")
+            .classList.remove(`thimble_ball_position-${rand}`);
+    }, 4500);
+
+    // Start Timer
+    if (countdownEl.innerHTML == '05:00') {
+        setInterval(() => {
+            if(timeLeft <= 0) {
+                clearInterval(timeLeft = 0);
+            }
+
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            countdownEl.innerHTML = `${minutes}:${seconds}`;
+            timeLeft--;
+
+        }, 1000);
+    }
 }
 
 //this function resets the class of all the thimbles to default
@@ -128,24 +152,52 @@ function selectthimble(x) {
     selectedthimble.classList.add("thimbleup"); //lift the selected thimble up
 
     setTimeout(function () {
+        let points = document.querySelector(".scoreNm");
+
         if (winningthimble != selectedthimble) {
-        setTimeout(function () {
-            selectedthimble.classList.remove("thimbleup");
-        }, 2000); //bring the selected thimble down after 2 secs
-        setTimeout(function () {
-            winningthimble.classList.remove("thimbleup");
-        }, 2500); //bring the winning thimble down after 2.5secs
-        alert("Try Again");
-        document.getElementById("Playbutton").style.pointerEvents = "all"; //make the play button clickable again
+            setTimeout(function () {
+                selectedthimble.classList.remove("thimbleup");
+            }, 2000); //bring the selected thimble down after 2 secs
+            setTimeout(function () {
+                winningthimble.classList.add("thimbleup");
+            }, 2500); //bring the winning thimble down after 2.5secs
+
+            setTimeout(function () {
+                winningthimble.classList.remove("thimbleup");
+            }, 4000); //bring the winning thimble down after 5secs
+
+            // subtract points
+            points.innerHTML = parseInt(points.innerHTML) - 1000;
+
+            document.getElementById("Playbutton").style.pointerEvents = "all"; //make the play button clickable again
         } else if ((winningthimble = selectedthimble)) {
-        alert("You Won");
-        setTimeout(function () {
-            selectedthimble.classList.remove("thimbleup");
-        }, 2000); //bring the selected thimble down after 2 secs
-        setTimeout(function () {
-            winningthimble.classList.remove("thimbleup");
-        }, 2500); //bring the winning thimble down after 2.5secs
-        document.getElementById("Playbutton").style.pointerEvents = "all"; //make the play button clickable again
+
+             // add points
+             points.innerHTML = parseInt(points.innerHTML) + 1000;
+
+            setTimeout(function () {
+                selectedthimble.classList.remove("thimbleup");
+            }, 2000); //bring the selected thimble down after 2 secs
+            setTimeout(function () {
+                winningthimble.classList.remove("thimbleup");
+            }, 2500); //bring the winning thimble down after 2.5secs
+            document.getElementById("Playbutton").style.pointerEvents = "all"; //make the play button clickable again
         }
-    }, 3500);
+    }, 2000);
 }
+
+
+function setCup(id) {
+    let elements = document.querySelectorAll(".sewing_thimble");
+    for (element of elements) {
+        element.style.background = `url("Img/c${id}.png") no-repeat fixed center`;
+        element.style.backgroundSize = `contain`;
+    }
+}
+
+function setBall(id) {
+    let element = document.querySelector("#thimble_ball");
+    element.style.background = `url("Img/b${id}.png") no-repeat center`;
+    element.style.backgroundSize = '2em 2em';
+}
+

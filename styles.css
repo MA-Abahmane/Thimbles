@@ -18,14 +18,17 @@
     margin: 0;
     display: grid;
     place-items: center;
+    padding: 0;
 }
 
+/* Preloader */
 h3 {
     font-size: 10em;
     top: 0em;
     margin-top: 0em;
     color: #fff;
     text-shadow: 3em 7em 3em #81838d;
+    text-shadow: 2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000, 0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
 }
 
 .preloader {
@@ -83,31 +86,34 @@ body {
     background-attachment: fixed;
     background-position: bottom;
     scroll-behavior: none;
+    overflow: hidden;
 }
 
+
+/* Game Container */
 .game_section {
+    position: relative;
     width: 100%;
     height: 60vh;
-    place-items: center;
+    min-height: 60vh;
     display: flex;
-    position: relative;
-    flex-direction: column;
     align-items: center;
-    min-height: 60vh; 
-    background: url(Img/s.jpg);
-    font-size: 1vw; 
+    place-items: center;
+    flex-direction: column;
+    font-size: 1vw;
 }
 
 .game_container {
     position: absolute;
-    bottom: 1vh; 
-    width: 52.5vw; 
-    height: 28.75vh; 
+    bottom: 0vh;
+    width: 52.5vw;
+    height: 28.75vh;
 }
 
+/* Thimble */
 .sewing_thimble {
-    background: url(Img/cup.png) no-repeat fixed center;
-    background-size: cover;
+    background: url(Img/c9.png) no-repeat fixed center;
+    background-size: contain;
     border: none;
     position: absolute;
     top: 11.875em;
@@ -133,13 +139,15 @@ top: 13.5em;
     left: 34.3em;
 }
 
+/* Thimble Up */
 .thimbleup {
-    transform: translateY(-3em);
+    transform: translateY(-5em);
 }
 
+/* Ball */
 .thimble_ball_position-0 {
-    background: url(Img/Ball.png) no-repeat center;
-    background-size: cover;
+    background: url(Img/b0.png) no-repeat center;
+    background-size: 2em 2em;
     position: relative;
     left: 10.8em;
     top: 15.7em;
@@ -150,8 +158,8 @@ top: 13.5em;
 }
 
 .thimble_ball_position-1 {
-    background: url(Img/Ball.png) no-repeat center;
-    background-size: cover;
+    background: url(Img/b0.png) no-repeat center;
+    background-size: 2em 2em;
     position: relative;
     left: 23.3em;
     top: 17.5em;
@@ -162,8 +170,8 @@ top: 13.5em;
 }
 
 .thimble_ball_position-2 {
-    background: url(Img/Ball.png) no-repeat center;
-    background-size: cover;
+    background: url(Img/b0.png) no-repeat center;
+    background-size: 2em 2em;
     position: relative;
     left: 35.6em;
     top: 15.7em;
@@ -173,6 +181,7 @@ top: 13.5em;
     z-index: 0;
 }
 
+/* Button Container */
 .pbutton_container {
     padding-bottom: 1.5625em;
     margin-top: 0.6875em;
@@ -183,6 +192,7 @@ top: 13.5em;
     margin: 10em 0em 0em;
 }
 
+/* Play Button */
 .Playbutton {
     position: absolute;
     width: 9.5vw;
@@ -198,47 +208,204 @@ top: 13.5em;
     box-shadow: 0em 0.1em 0.625em rgba(0, 0, 0, 0.743);
     cursor: pointer;
 
-    color: #353230bb;
+    color: whitesmoke;
     font-weight: 700;
     text-decoration: none;
     text-align: center;
     font-size: 1.3em;
     text-shadow: 0em 0em 5em 8em #434b5b;
+    text-shadow: 2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000, 0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
 
     transition: all 0.2s ease-in-out;
     z-index: 7;
 }
 .Playbutton:hover {
-    box-shadow: 0em 0.1em 0.625em 0.075em rgba(0, 0, 0, 0.72);
+    box-shadow: 0em 0.3em 0.625em 0.075em rgba(0, 0, 0, 0.72);
     bottom: -12.8em;
 }
 
 
+/* Timer */
+#countdown {
+    position: absolute;
+    text-align: center;
+    font-size: 1.4em;
+    top: 1em;
+    right: 1em;
+    width: 4em;
+    height: 2em;
+    color: white;
+}
+
+/* Score */
+.score {
+    position: absolute;
+    font-size: 1.3em;
+    top: 1em;
+    left: 1em;
+    width: 7em;
+    height: 2em;
+    color: white;
+}
+
+/* Shop */
+.shopBtn {
+    position: absolute;
+    top: 50%;
+    left: -4em;
+    width: 11em;
+    height: 4em;
+    border-radius: .5em;
+    background: white;
+    overflow: hidden;
+    padding-left: 5px;
+    cursor: pointer;
+    background: transparent;
+    backdrop-filter: blur(1em);
+}
+
+.shopBtn img {
+    width: 4em;
+    height: 4em;
+}
+
 .shop {
     position: absolute;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    top: 1em;
-    right: 1em;
-    width: 65px;
-    height: 65px;
-    border-radius: 100px;
-    background: white;
-    overflow: hidden;
-    cursor: pointer;
-}
-.shop img {
-    width: 90%;
-    height: 90%;
+    align-content: space-evenly;
+    box-sizing: border-box;
+    gap: 1em;
+    top: 0;
+    right: -50.5em;
+    width: 50em;
+    height: 50.6em;
+    background: transparent;
+    backdrop-filter: blur(1em);
+    border-radius: 4em;
+    z-index: 10;
+    padding-left: 1.5em;
+    padding-right: 4em;
+    transition: all 0.7s ease-in-out;
+} .shop:hover {
+    right: -3em;
+    .shopBtn {
+        display: opacity 0;
+    }
 }
 
-.timer {
-    position: absolute;
-    top: 1em;
-    left: 1em;
-    width: 100px;
-    height: 50px;
-    font-size: 1.5em;
-    color: white;
+/* Shop Items */
+.shop h2 {
+    width: 100%;
+    height: 1em;
+    padding: 1em;
+    text-align: center;
+    margin-bottom: -1.2em;
+    font-size: 2em;
+    color: #fff;
+    text-shadow: 2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000, 0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
+}
+
+.shop > div[class^="c"] {
+    width: 4em;
+    height: 4em;
+    box-shadow: 0em 0.1em 0.425em #000000bd;
+    border-radius: 0.7em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: blur(2em);
+    cursor: pointer;
+    transform: rotate(180deg);
+    transition: all 0.5s ease-in-out;
+} .shop > div[class^="c"]:hover {
+    box-shadow: 0em 0.1em 0.425em #000000bd;
+    transform: scale(1.1);
+}
+
+
+.c0 {
+    background: url(Img/c0.png) no-repeat center;
+}
+.c1 {
+    background: url(Img/c1.png) no-repeat center;
+}
+.c2 {
+    background: url(Img/c2.png) no-repeat center;
+}
+.c3 {
+    background: url(Img/c3.png) no-repeat center;
+}
+.c4 {
+    background: url(Img/c4.png) no-repeat center;
+}
+.c5 {
+    background: url(Img/c5.png) no-repeat center;
+}
+.c6 {
+    background: url(Img/c6.png) no-repeat center;
+}
+.c7 {
+    background: url(Img/c7.png) no-repeat center;
+}
+.c8 {
+    background: url(Img/c8.png) no-repeat center;
+}
+.c9 {
+    background: url(Img/c9.png) no-repeat center;
+}
+.c10 {
+    background: url(Img/c10.png) no-repeat center;
+}
+.c11 {
+    background: url(Img/c11.png) no-repeat center;
+}
+.c12 {
+    background: url(Img/c12.png) no-repeat center;
+}
+.c13 {
+    background: url(Img/c13.png) no-repeat center;
+}
+.c14 {
+    background: url(Img/c14.png) no-repeat center;
+}
+
+.shop > div[class^="b"] {
+    width: 4em;
+    height: 4em;
+    box-shadow: 0em 0.1em 0.425em #000000bd;
+    border-radius: 0.7em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2em 2em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+} .shop > div[class^="b"]:hover {
+    box-shadow: 0em 0.1em 0.525em #000000bd;
+    transform: scale(1.1);
+}
+
+.b0 {
+    background: url(Img/b0.png) no-repeat center;
+}
+.b1 {
+    background: url(Img/b1.png) no-repeat center;
+}
+.b2 {
+    background: url(Img/b2.png) no-repeat center;
+}
+.b3 {
+    background: url(Img/b3.png) no-repeat center;
+}
+.b4 {
+    background: url(Img/b4.png) no-repeat center;
+}
+.b5 {
+    background: url(Img/b5.png) no-repeat center;
+}
+
+.s {
+    width: 100%;
+    height: 2em;
 }
