@@ -6,11 +6,21 @@ window.addEventListener("load", () => {
     }, 2000)
 });
 
+let onTable = 0
+
 //this function triggers when you click play
 function StartGame() {
-    Showball();
-    // setTimeout(Showball,);
-    setTimeout(shuffling, 7000);
+    let points = document.querySelector(".scoreNm");
+    if (parseInt(points.innerHTML) <= 0) {
+        alert("Game Over");
+        clearInterval(idItr);
+    } else if (onTable == 0) {
+        alert("Please place a bet");
+    } else {
+        Showball();
+        // setTimeout(Showball,);
+        setTimeout(shuffling, 7000);
+    }
 }
 
 //this function lifts the thimbles
@@ -25,7 +35,7 @@ function thimbledown(x) {
 
 //this function selects one thimble at random and positions the ball under it and lifts it at the beginning
 let timeLeft = 5 * 60; // 5 minutes in seconds
-
+let idItr
 const countdownEl = document.getElementById('countdown');
 function Showball() {
     document.getElementById("Playbutton").style.pointerEvents = "none";
@@ -50,9 +60,10 @@ function Showball() {
 
     // Start Timer
     if (countdownEl.innerHTML == '05:00') {
-        setInterval(() => {
+        idItr = setInterval(() => {
             if(timeLeft <= 0) {
                 clearInterval(timeLeft = 0);
+                alert("Time's up! You Won " + points.innerHTML + " spades!!");
             }
 
             let minutes = Math.floor(timeLeft / 60);
@@ -167,13 +178,23 @@ function selectthimble(x) {
             }, 4000); //bring the winning thimble down after 5secs
 
             // subtract points
-            points.innerHTML = parseInt(points.innerHTML) - 1000;
+            points.innerHTML = parseInt(points.innerHTML) - onTable;
+            onTable = 0;
+            let sum = document.querySelector(".sumNm");
+            sum.innerHTML = 0
 
             document.getElementById("Playbutton").style.pointerEvents = "all"; //make the play button clickable again
         } else if ((winningthimble = selectedthimble)) {
 
-             // add points
-             points.innerHTML = parseInt(points.innerHTML) + 1000;
+            // add points
+            points.innerHTML = parseInt(points.innerHTML) + onTable;
+            if (points.innerHTML <= 0) {
+                alert("Game Over");
+                clearInterval(idItr);
+            }
+            onTable = 0;
+            let sum = document.querySelector(".sumNm");
+            sum.innerHTML = 0
 
             setTimeout(function () {
                 selectedthimble.classList.remove("thimbleup");
@@ -201,3 +222,15 @@ function setBall(id) {
     element.style.backgroundSize = '2em 2em';
 }
 
+function setOnTable(prst) {
+    let points = document.querySelector(".scoreNm");
+
+    if (parseInt(points.innerHTML) > 0) {
+        let sum = document.querySelector(".sumNm");
+        onTable = Math.round(points.innerHTML * prst);
+        sum.innerHTML = onTable;
+    } else {
+        alert("Game Over");
+        clearInterval(idItr);
+    }
+}
