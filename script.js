@@ -1,6 +1,7 @@
-let points = document.getElementsByClassName("scoreNm")[1];
+let [score, points] = [...document.getElementsByClassName("scoreNm")]
 const countdownEl = document.getElementById('countdown');
 let board = document.querySelector(".outer");
+let table = document.querySelector(".table");
 
 
 //pre-loader
@@ -16,10 +17,24 @@ let onTable = 0
 //this function triggers when you click play
 function StartGame() {
     if (parseInt(points.innerHTML) <= 0) {
+        score.innerHTML = 'No spades left '
         board.style.display = "flex";
         clearInterval(idItr);
     } else if (onTable == 0) {
-        alert("Please place a bet");
+        // blinking border
+        table.style.border = '5px dashed red'
+
+        setTimeout(() => {
+            table.style.border = '5px dashed transparent'
+        }, 500)
+
+        setTimeout(() => {
+            table.style.border = '5px dashed red'
+        }, 1000)
+
+        setTimeout(() => {
+            table.style.border = '5px dashed transparent'
+        }, 1500)
     } else {
         Showball();
         // setTimeout(Showball,);
@@ -67,8 +82,8 @@ function Showball() {
 
             if (timeLeft <= 0) {
                 clearInterval(idItr);
-                alert("Time's up! You Won " + points.innerHTML + " spades!!");
                 board.style.display = "flex";
+                score.innerHTML = 'Time\'s up!  You Won ' + points.innerHTML + ' '
             }
 
             let minutes = Math.floor(timeLeft / 60);
@@ -84,7 +99,7 @@ function Showball() {
     }
 }
 
-//this function resets the class of all the thimbles to default
+// This function resets the class of all the thimbles to default
 function resetthimbclass() {
 document
     .getElementById("Cup0")
@@ -204,6 +219,7 @@ function selectthimble(x) {
 
             if (points.innerHTML <= 0) {
                 board.style.display = "flex";
+                score.innerHTML = 'No spades left '
                 clearInterval(idItr);
             }
             onTable = 0;
@@ -244,13 +260,12 @@ function setOnTable(prst) {
         sum.innerHTML = onTable;
     } else {
         board.style.display = "flex";
+        score.innerHTML = 'No spades left '
         clearInterval(idItr);
     }
 }
 
 function init() {
-    setCup(9);
-    setBall(1);
     setOnTable(0);
     points.innerHTML = 200;
     board.style.display = "none";
