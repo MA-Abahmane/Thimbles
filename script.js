@@ -68,6 +68,7 @@ function Showball() {
             if (timeLeft <= 0) {
                 clearInterval(idItr);
                 alert("Time's up! You Won " + points.innerHTML + " spades!!");
+                board.style.display = "flex";
             }
 
             let minutes = Math.floor(timeLeft / 60);
