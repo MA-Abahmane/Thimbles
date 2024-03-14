@@ -454,8 +454,79 @@ top: 13.5em;
     border-radius: 0.4em;
     cursor: pointer;
     text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 } .table div[class^='p']:hover {
     box-shadow: 0em 0.1em 0.425em #000000bd;
     transform: scale(1.07);
+}
+
+.scoreNm {
+    transition: all 0.4s ease-in-out;
+}
+
+.outer {
+    position: absolute;
+    width: 112em;
+    height: 60em;
+    top: -1em;
+    left: -1em;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 0em 0.1em 0.625em #000000bd;
+    backdrop-filter: blur(.2em);
+    background: transparent;
+    transition: all 0.5s ease-in-out;
+    z-index: 11;
+    display: none;
+}
+
+.inner, .board {
+    width: 30em;
+    height: 13em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 0em 0.1em 0.625em #000000bd;
+    background: rgba(255, 255, 255, 0.615);
+    border-radius: 1em;
+    transition: all 0.5s ease-in-out;
+    z-index: 12;
+}
+.board {
+    width: 28em;
+    height: 11em;
+    flex-direction: column;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    box-shadow: 0em 0.1em 0.425em #000000bd;
+    text-align: center;
+    left: 150%;
+    background: transparent;
+    backdrop-filter: blur(1em);
+    transition: all 0.2s ease-in-out;
+} .board:hover {
+    box-shadow: 0em 0.1em 0.625em #000000bd;
+}
+
+.board button {
+    width: 90%;
+    height: 50px;
+    text-align: center;
+    background: transparent;
+    backdrop-filter: blur(1em);
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0em 0.1em 0.325em #000000bd;
+    border-radius: 50em;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000, 0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
+} .board button:hover {
+    box-shadow: 0em 0.1em 0.425em #000000bd;
+    transform: scale(1.05);
 }
