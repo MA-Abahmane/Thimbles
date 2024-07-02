@@ -1,4 +1,4 @@
-# Cup Con
+# Cup Con: Thimbles
 
 Cup Con is a simple web application for playing the classic game of Thimbles. It's built using HTML, CSS, and JavaScript.
 
@@ -10,21 +10,7 @@ Cup Con is a simple web application for playing the classic game of Thimbles. It
 
 ## Getting Started
 
-To get started with Cup Con, follow these steps:
-
-1. Clone the repository:
-
-    ```
-    git clone https://github.com/your-username/Cup-Con.git
-    ```
-
-2. Navigate to the project directory:
-
-    ```
-    cd Cup-Con
-    ```
-
-3. Open `index.html` in your preferred web browser.
+Game link: [THIMBLES](https://thimbles.netlify.app)
 
 ## How to Play
 
