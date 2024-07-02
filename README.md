@@ -10,7 +10,7 @@ Cup Con is a simple web application for playing the classic game of Thimbles. It
 
 ## Getting Started
 
-Game link: [THIMBLES](https://thimbles.netlify.app)
+Game link &nbsp; | &nbsp; [THIMBLES](https://thimbles.netlify.app)
 
 ## How to Play
 
