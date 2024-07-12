@@ -1,20 +1,26 @@
-let [score, points] = [...document.getElementsByClassName("scoreNm")]
-const countdownEl = document.getElementById('countdown');
+
+const layer1 = document.querySelector('.layer1')
+const layer2 = document.querySelector('.layer2')
+const layer3 = document.querySelector('.layer3')
+const outer = document.querySelector('._outer')
+const inner = document.querySelector('._inner')
+const percentage = document.querySelector('span')
+const processing = document.querySelector('.processing')
+const p1 = document.querySelector('.p1')
+const p2 = document.querySelector('.p2')
+const p3 = document.querySelector('.p3')
+
+let [score, points] = [...document.querySelectorAll(".scoreNm")]
+const countdownEl = document.querySelector('#countdown');
 let board = document.querySelector(".outer");
 let table = document.querySelector(".table");
 
 
 let Game0N = false
-let TIME = 5 * 60
+let TIME =  5 * 60
 let onTable = 0
 
-//pre-loader
-window.addEventListener("load", () => {
-    const preloader = document.querySelector(".preloader");
-    setTimeout(() => {
-        preloader.classList.add("preload-finish");
-    }, 2000)
-});
+
 
 
 //this function triggers when you click play
@@ -83,7 +89,7 @@ function Showball() {
     // Start Timer
     if (countdownEl.innerHTML == '05:00') {
         idItr = setInterval(() => {
-            if (timeLeft <= 0) {
+            if (timeLeft <= 0 && !Game0N) {
                 if (!Game0N) {
                     setTimeout(() => {
                         clearInterval(idItr);
@@ -93,14 +99,16 @@ function Showball() {
                     }, 2000)
                 }
             } else {
-                let minutes = Math.floor(timeLeft / 60);
-                let seconds = timeLeft % 60;
+                if (timeLeft >= 0) {
+                    let minutes = Math.floor(timeLeft / 60);
+                    let seconds = timeLeft % 60;
 
-                minutes = minutes < 10 ? '0' + minutes : minutes;
-                seconds = seconds < 10 ? '0' + seconds : seconds;
+                    minutes = minutes < 10 ? '0' + minutes : minutes;
+                    seconds = seconds < 10 ? '0' + seconds : seconds;
 
-                countdownEl.innerHTML = `${minutes}:${seconds}`;
-                timeLeft--;
+                    countdownEl.innerHTML = `${minutes}:${seconds}`;
+                    timeLeft--;
+                }
             }
         }, 1000);
     }
@@ -273,6 +281,7 @@ function setOnTable(prst) {
     }
 }
 
+
 function init() {
     setOnTable(0);
     points.innerHTML = 200;
@@ -286,3 +295,72 @@ function init() {
     timeLeft = TIME
 
 }
+
+
+///\ LOAD GAME /\\\
+let count = 0;
+let GAME0N = false
+// Event listener for loading the game
+inner.addEventListener('click', loader = () => {
+    // Remove event listener to ensure only one click is processed
+    inner.removeEventListener('click', loader)
+    GAME0N = true
+
+    /* Process board smooth appearance */
+    percentage.textContent = '0%'
+
+    // Smooth appearance animation of loading elements
+    gsap.to(p1, { opacity: 0.5, duration: 1 });
+    gsap.to(p2, { opacity: 0.5, duration: 2 });
+    gsap.to(p3, { opacity: 0.5, duration: 3 });
+
+    // Start loading animation and transition when loading
+    setTimeout(() => {
+        /* Percent Loader */
+        const id = setInterval(() => {
+            if (GAME0N) {
+                if (count == 99) {
+                    // Load reaches 100%, animate out the loading screen
+                    setTimeout(() => {
+                        percentage.textContent = '100%'
+                        outer.classList.remove('active-loader')
+                        outer.classList.add('active-loader2')
+                        layer3.style.top = '-100%'
+                        layer2.style.top = '-100%'
+                        layer1.style.top = '-100%'
+                    }, 1500)
+
+                    // Hide loading elements and clear interval
+                    setTimeout(() => {
+                        layer3.style.display = 'none'
+                        layer2.style.display = 'none'
+                        layer1.style.display = 'none'
+                        clearInterval(id)
+                    }, 3000)
+
+                }
+                else {
+                    count++
+                    percentage.textContent = count + '%'
+                    outer.classList.add('active-loader')
+                }
+            }
+        }, 60) // Loading speed
+
+         /* Process appear one by one */
+        const ls = [p1, p2, p3];
+        let i = 1;
+        gsap.to(p1, { opacity: 1, scale: '1.5', duration: 0.5 });
+
+        // Sequential animation for loading elements
+        const _id = setInterval(() => {
+            if (i < ls.length) {
+                gsap.to(ls[i], { opacity: 1, scale: '1.5', duration: 0.5 });
+                gsap.to(ls[i - 1], { opacity: 0.5, scale: '1', duration: 0.5 });
+                i++;
+            } else {
+                clearInterval(_id);
+            }
+        }, 2500);
+    }, 2000)
+})
