@@ -562,20 +562,20 @@ div[class^='layer'] {
 }
 
 .layer1 {
-    background-color: #2fe3fe;
+    background-color: #fce4e4;
     transition: 1.30s ease-in-out;
     z-index: 4;
 }
 
 .layer2 {
-    background-color:#Ed00aa;
+    background-color:#7a4d9b;
     transition: 1.15s ease-in-out;
     z-index: 5;
 }
 
 /*/ Game Percentage Loading circle /*/
 .layer3 {
-    background-color:#200854;
+    background-color:#3a3a3a;
     transition: 1s ease-in-out;
     z-index: 6;
 }
@@ -597,7 +597,7 @@ div[class^='layer'] {
 ._outer {
     height: 300px;
     width: 300px;
-    background: linear-gradient(135deg, #feed07 0%, #fe6a50 10%, #Ed00aa 25% , #2fe3fe 50%, #4c77f9 60%, #2b00ff 90%);
+    background: linear-gradient(135deg, #ff9a8b 0%, #ff6a88 20%, #ff99ac 40%, #ffcdce 60%, #feffdf 80%, #a5ffd6 100%);
     border-radius: 50%;
     margin-top: -70px;
     scale: 1;
@@ -622,7 +622,7 @@ div[class^='layer'] {
     height: 275px;
     text-align: center;
     line-height: 275px;
-    background: #240f52;
+    background: #3a3a3a;
     border-radius: 50%;
     margin-top: -69px;
     user-select: none;
@@ -634,7 +634,7 @@ div[class^='layer'] {
     z-index: 7;
 }
 ._inner:hover {
-    background: #2d1663;
+    background: #3a3a3af0;
     cursor: pointer;
 }
 
@@ -643,7 +643,7 @@ div[class^='layer'] {
     font-weight: 800;
     color: transparent;
     font-family: myFont, 'Segoe UI', sans-serif;
-    background:  linear-gradient(135deg, #feed07 0%, #fe6a50 5%, #Ed00aa, #2fe3fe 50%, #8900ff 100%);
+    background: linear-gradient(135deg, #ff9a8b 0%, #ff6a88 20%, #ff99ac 40%, #ffcdce 60%, #feffdf 80%, #a5ffd6 100%);
 
     -webkit-background-clip: text;
     background-size: 300%;
@@ -669,7 +669,7 @@ div[class^='layer'] {
     width: 400px;
     height: 80px;
     font-size: 17px;
-    color: #2fe3fe;
+    color: #ff99ac;
     display: flex;
     flex-direction: column;
     justify-content: center;

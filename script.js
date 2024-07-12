@@ -336,6 +336,10 @@ inner.addEventListener('click', loader = () => {
                         layer2.style.display = 'none'
                         layer1.style.display = 'none'
                         clearInterval(id)
+                        
+                        if (window.screen.width < 1200 || window.screen.height < 500) {
+                            alert('This game is not supported on mobile devices')
+                        }
                     }, 3000)
 
                 }
@@ -364,3 +368,4 @@ inner.addEventListener('click', loader = () => {
         }, 2500);
     }, 2000)
 })
+
